@@ -169,4 +169,14 @@ class User extends Authenticatable
     {
         return $this->favorites()->where('micropost_id', $micropostId)->exists();
     }
+    
+    /*
+    public function themechange()
+    if (theme = normal){
+    return 'https://cdn.jsdelivr.net/npm/bootstrap-dark-5@1.1.2/dist/css/bootstrap-night.min.css';
+    }
+    else{
+    return 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css'
+    }
+    */
 }

@@ -98,5 +98,9 @@ class MicropostsController extends Controller
         ]);
         return back();
         }
+<<<<<<< HEAD
     }
+=======
+    }    
+>>>>>>> origin/master
 }
