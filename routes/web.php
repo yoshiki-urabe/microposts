@@ -35,6 +35,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::group(['prefix' => 'microposts/{id}'], function () {
         Route::post('favorite', 'FavoritesController@store')->name('favorites.favorite');
         Route::delete('unfavorite', 'FavoritesController@destroy')->name('favorites.unfavorite');
+        //編集ページ
+        Route::put('update', 'MicropostsController@update')->name('micropost.update');
+        Route::get('edit', 'MicropostsController@edit')->name('micropost.edit');
     });
 
     Route::resource('microposts', 'MicropostsController', ['only' => ['store', 'destroy']]);

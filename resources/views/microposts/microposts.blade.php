@@ -8,7 +8,12 @@
                     <div>
                         {{-- 投稿の所有者のユーザ詳細ページへのリンク --}}
                         {!! link_to_route('users.show', $micropost->user->name, ['user' => $micropost->user->id]) !!}
-                        <span class="text-muted">posted at {{ $micropost->created_at }}</span>
+                        @if ($micropost->created_at == $micropost->updated_at)
+                            <span class="text-muted">posted at {{ $micropost->created_at }}</span>
+                            @else
+                                <span class="text-muted">posted at {{ $micropost->created_at }}</span>
+                                <span class="text-muted">[updated at {{ $micropost->updated_at }}]</span>
+                        @endif
                     </div>
                     <div>
                         {{-- 投稿内容 --}}
@@ -17,6 +22,7 @@
                         <div class="container">
                             <div class="row">
                                 @include('favorites.favorites_button')
+                                @include('microposts.update_button')
                                 @include('microposts.delete_button')
                             </div>    
                         </div>    

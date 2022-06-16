@@ -72,4 +72,31 @@ class MicropostsController extends Controller
             'microposts' => $microposts,
         ]);
     }
+    
+    //投稿updateアクション
+    function update(Request $request, $id)
+    {
+        $micropost = \App\Micropost::findOrFail($id);
+         
+        if (\Auth::id() === $micropost->user_id) {
+        $micropost->content = $request->content;
+        $micropost->update();
+        }
+        
+        return redirect('/');
+        
+    }
+    
+    //編集editアクション投稿
+    public function edit($id)
+    {
+        $micropost = \App\Micropost::findOrFail($id);
+         
+        if (\Auth::id() === $micropost->user_id) {
+           return view('microposts.edit', [
+            'micropost' => $micropost,
+        ]);
+        return back();
+        }
+    }
 }
