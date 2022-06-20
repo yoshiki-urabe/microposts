@@ -80,7 +80,7 @@ class MicropostsController extends Controller
          
         if (\Auth::id() === $micropost->user_id) {
         $micropost->content = $request->content;
-        $micropost->update();
+        $micropost->save();
         }
         
         return redirect('/');
@@ -96,11 +96,10 @@ class MicropostsController extends Controller
            return view('microposts.edit', [
             'micropost' => $micropost,
         ]);
-        return back();
+           return back();
         }
-<<<<<<< HEAD
-    }
-=======
+        else{
+            return redirect('/');
+        }
     }    
->>>>>>> origin/master
 }
