@@ -16,6 +16,8 @@ class UserSettingController extends Controller
     /*foreach ($user_datas as $user_data) {
         $user_name = $user_data->name;
     }*/
+//git test desu
+
     return view('users_setting.setting_page',[
             'user_datas' => $user_datas,
         ]);
