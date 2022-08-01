@@ -29,6 +29,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('followers', 'UsersController@followers')->name('users.followers');
         Route::get('favorites', 'UsersController@favorites')->name('users.favorites');
         Route::put('theme', 'ThemeController@update')->name('user.theme');
+        Route::get('setting', 'UserSettingController@edit')->name('user.edit');
     });
     
     Route::resource('users', 'UsersController', ['only' => ['index', 'show']]);
