@@ -20,6 +20,8 @@ class UserSettingController extends Controller
 
 //sourcetree test
 
+//feature-setting test
+
     return view('users_setting.setting_page',[
             'user_datas' => $user_datas,
         ]);
